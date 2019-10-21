@@ -2,4 +2,4 @@
 // Lets make an ajax call with axios
 
 // method: get
-// url: https://dog.ceo/api/breed/boxer/images/random
+// url: https://swapi.co/api/people/1
