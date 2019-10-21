@@ -109,7 +109,9 @@ Postman is a tool to test and build APIs. It's super helpful to test requests th
 ![](images/postman.png)
 
 <br>
+
 ## JSON
+
 ![json](images/what_is_rest_api.png)
 
 JSON stands for **J**ava**S**cript **O**bject **N**otation. It is a lightweight way for storing and transporting data.
