@@ -282,7 +282,7 @@ After calling the initial function (in our case `axios()`), all we need to do is
 ```js
 // Example 1
 axios({
-  url: 'https://dog.ceo/api/breed/boxer/images/random',
+  url: 'https://cataas.com/cat',
   method: 'get',
 })
 .then()
@@ -293,7 +293,7 @@ It is easier to ready if we place them on the next line
 
 ```js
 axios({
-  url: 'https://dog.ceo/api/breed/boxer/images/random',
+  url: 'https://cataas.com/cat',
   method: 'get',
 })
 .then() // .then wants a function to run if the request is succesful
@@ -306,7 +306,7 @@ The `.then` and `.catch` method want us to pass them functions to run.
 
 ```js
 axios({
-  url: 'https://dog.ceo/api/breed/boxer/images/random',
+  url: 'https://cataas.com/cat',
   method: 'get',
 })
 .then(doGoodStuff) 
@@ -317,7 +317,7 @@ We often use anonymous, fat arrow functions.
 
 ```js
 axios({
-  url: 'https://dog.ceo/api/breed/boxer/images/random',
+  url: 'https://cataas.com/cat',
   method: 'get',
 })
 .then(() => {
@@ -332,7 +332,7 @@ axios({
 
 ```js
 axios({
-  url: 'https://dog.ceo/api/breed/boxer/images/random',
+  url: 'https://cataas.com/cat',
   method: 'get',
 })
 .then((response) => {
