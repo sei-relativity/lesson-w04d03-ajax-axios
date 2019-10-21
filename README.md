@@ -1,6 +1,7 @@
 # AJAX + Axios
 
 ## HTTP Recap
+[How The Internet Works in 5 Minutes](https://www.youtube.com/watch?v=7_LPdttKXPc)
 
 Let's define a few terms:
 
@@ -24,6 +25,18 @@ The World Wide Web (WWW, or simply "web") is a distributed, world-wide collectio
 
 ![http_requests](images/http_requests.png)
 
+### Verbs
+URLs reveal the identity of the particular host with which we want to communicate, but the action that should be performed on the host is specified via HTTP verbs (or methods, as they are properly called). Of course, there are several actions that a client would like the host to perform. HTTP has formalised on a few that capture the essentials that are universally applicable for all kinds of applications.
+
+These request verbs are:
+
+- **GET:** fetch an existing resource. The URL contains all the necessary information the server needs to locate and return the resource.
+- **POST:** create a new resource. POST requests usually carry a payload that specifies the data for the new resource.
+- **PUT/PATCH:** update an existing resource. The payload may contain the updated data for the resource.
+- **DELETE:** delete an existing resource.
+
+The above four verbs are the most popular, and most tools and frameworks explicitly expose these request verbs. PUT and DELETE are sometimes considered specialised versions of the POST verb, and they may be packaged as POST requests with the payload containing the exact action: create, update or delete.
+
 Examples:
 
 - GET http://www.example.com/customers/12345
@@ -36,8 +49,70 @@ https://www.restapitutorial.com/lessons/httpmethods.html
 
 <br>
 
-## JSON
+## API
+![API](images/api2.png)
 
+In computer science API application programming interface is quite a broad term which can be confusing.
+
+However, The term now commonly refers to web URLs that can be accessed for raw data.
+
+When we think about APIs within the context of web application development we can simply think about it as a website that returns JSON instead of HTML so that a computer can use the data to do something instead of a human.
+
+It allows a programme to interface with a website over the internet so that it can use that websites' data.
+
+**Q: Why use api?**
+>Why recreate data when we don't have to? Think about past projects or ideas that would be easier if you could pull in data already gathered elsewhere.
+APIs can provide us with data that we would otherwise not be able to create ourselves.
+
+Many web sites have their own data, but they can pull in other data. For example, many news sites have a weather widget. This widget gets its data from a weather resource.
+
+There are many APIs that can be used by individuals and companies. Some are totally free, some are available for a small fee, and some are really expensive.
+
+Let's check out a few API's:
+
+- [Dog API](https://dog.ceo/dog-api/)
+- [Star Wars API](https://swapi.co/)
+- [Pokemon API](https://pokeapi.co/)
+- [Game of Thrones API](https://anapioficeandfire.com/)
+
+
+
+<br>
+
+
+## Postman
+
+[Postman Docs](https://www.getpostman.com/)
+
+![](https://i.imgur.com/Px0MmFA.png)
+
+Postman is a tool to test and build APIs. It's super helpful to test requests that will require a form (`POST` or `PUT/PATCH`) or a link/button (`DELETE`).
+
+<br>
+
+##  API Requests
+
+[Reqres.in Docs](https://reqres.in/)
+
+![](https://i.imgur.com/MC3d9KN.png)
+
+#### CREATE/POST DOCS
+
+![](https://i.imgur.com/BT2Nv0U.png)
+
+#### CREATE WITH A FORM
+
+![](images/postmanForm.png)
+
+#### CREATE WITH RAW JSON
+
+![](images/postman.png)
+
+<br>
+## JSON
+![json](images/what_is_rest_api.png)
+
+JSON stands for **J**ava**S**cript **O**bject **N**otation. It is a lightweight way for storing and transporting data.
 JSON is:
 
 - a data exchange format.
@@ -55,7 +130,10 @@ JSON does not support:
 - comments.
 - methods.
 
-Here is an example of JSON data:
+>JSON is just one format that we can send and receive over the internet. There are some others like XML that you might see. However, JSON is the most common and the easiest to use.
+
+
+###### JSON Example
 
 ```json
 {
@@ -73,24 +151,10 @@ Here is an example of JSON data:
      ]
  }
 ```
-
-<br>
-
-## API
-
-
-![json](images/what_is_rest_api.png)
-
-Let's check out a few API's
-
-- [Dog API](https://dog.ceo/dog-api/)
-- [Star Wars API](https://swapi.co/)
-- [Pokemon API](https://pokeapi.co/)
-- [Game of Thrones API](https://anapioficeandfire.com/)
-
 We can add a [chrome extension](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en) to make JSON easier to read.
-
 <br>
+
+
 
 ## AJAX
 
@@ -112,6 +176,13 @@ AJAX is a misleading name. AJAX applications might use XML to transport data, bu
 
 AJAX allows web pages to be updated asynchronously by exchanging data with a web server behind the scenes. This means that it is possible to update parts of a web page, without reloading the whole page.
 
+##### XML and JSON
+Back in the day, APIs used to send data in XML format,which is where the X in AJAX comes from. However, JSON has become the predominant way to send data over the internet.
+
+Even though JSON has become the preferred method of data transfer, no one seems in a hurry to start calling AJAX AJAJ.
+
+
+When we will use AJAX, we will be sending and receiving JSON.
 Let's take a look at a few sites that use AJAX:
 
 - https://www.google.com/maps
@@ -191,6 +262,21 @@ You may have already used some asynchronous javascript with `setTimeout()`.  Pot
 
 To work with asynchronous javascript, we are going to use promises and a promise chain.
 
+### JavaScript Promises
+
+Remember, JavaScript is _Asynchronous_. It doesn't wait for one thing to finish before moving on to the next thing. So we must figure out a way to wait for our Axios call to finish getting all the data before we start working with it.
+
+To work with asynchronous javascript, we are going to use `promises`. 
+ 
+ A `promise` is a special JavaScript object that can wait for a response and `then` do something. It is a way of writing code that says 'hey, wait for me, and I _promise_ I'll send you a response soon. Then, you can do what you need to do'
+
+After calling the initial function (in our case `axios()`), all we need to do is chain the other functions after it:
+
+- `.then()` is executed if the promise is fulfilled. 
+
+- `.catch()` is executed instead of `.then()` if the promise has failed in some way.
+
+
 ```js
 // Example 1
 axios({
@@ -257,32 +343,4 @@ axios({
 }) 
 ```
 
-<br>
 
-## Postman
-
-[Postman Docs](https://www.getpostman.com/)
-
-![](https://i.imgur.com/Px0MmFA.png)
-
-Postman is a tool to test and build APIs. It's super helpful to test requests that will require a form (`POST` or `PUT/PATCH`) or a link/button (`DELETE`).
-
-<br>
-
-## CRUD API Requests
-
-[Reqres.in Docs](https://reqres.in/)
-
-![](https://i.imgur.com/MC3d9KN.png)
-
-#### CREATE/POST DOCS
-
-![](https://i.imgur.com/BT2Nv0U.png)
-
-#### CREATE WITH A FORM
-
-![](https://i.imgur.com/DsNSAyo.png)
-
-#### CREATE WITH RAW JSON
-
-![](https://i.imgur.com/DsNSAyo.png)
